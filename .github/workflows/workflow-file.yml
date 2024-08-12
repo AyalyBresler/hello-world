@@ -19,4 +19,4 @@ jobs:
       - name: build the dockerfile
         run: docker build -t calc-test .
       - name: run the dockerfile
-        run: docker run -it calc-test
+        run: docker run calc-test
