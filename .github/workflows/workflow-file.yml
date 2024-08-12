@@ -19,4 +19,4 @@ jobs:
       - name: build the dockerfile
         run: docker build . -t calc-test -f 'calc/Dockerfile'
       - name: run the dockerfile
-        run: docker run calc-test -f 'calc/package.json'
+        run: docker run calc-test
