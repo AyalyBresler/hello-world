@@ -1,7 +1,6 @@
 FROM node:alpine
 ENV NODE_ENV process
 COPY . .
-
 RUN npm install -g jest
 RUN npm install -g express --save
 RUN npm install -g dotenv --save

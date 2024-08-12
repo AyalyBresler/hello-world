@@ -3,8 +3,8 @@ name: GitHub Actions Calculator
 on: 
   push:
     branches: ['calc']
-    # paths:
-    #   - 'calc/**'
+    paths:
+      - 'calc/**'
 
 jobs:
   test:
