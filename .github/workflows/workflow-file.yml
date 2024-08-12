@@ -17,6 +17,6 @@ jobs:
         with:
           node-version: '21'
       - name: build the dockerfile
-        run: docker build -t calc-test -f 'calc/Dockerfile' .
+        run: docker build . -t calc-test -f 'calc/Dockerfile'
       - name: run the dockerfile
         run: docker run calc-test
