@@ -4,7 +4,7 @@ COPY . .
 RUN npm install -g jest
 RUN npm install -g express --save
 RUN npm install -g dotenv --save
-RUN npm run build
+RUN npm install
 
 EXPOSE 3000
 CMD npm run test:coverage
