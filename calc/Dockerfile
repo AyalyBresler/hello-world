@@ -2,12 +2,12 @@ FROM node:alpine
 
 ENV NODE_ENV process
 
-# WORKDIR /app
+WORKDIR /app
 
-COPY package*.json .
+COPY package*.json /app/
 RUN npm install
 
-# COPY . /app/
+COPY . /app/
 RUN npm run build
 
 RUN npm install -g jest
