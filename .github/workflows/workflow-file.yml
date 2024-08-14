@@ -24,4 +24,4 @@ jobs:
       - name: build the dockerfile
         run: docker build . -t calc-workflow -f 'calc/Dockerfile'
       - name: run the dockerfile
-        run: docker run calc-workflow
+        run: docker run -d calc-workflow
