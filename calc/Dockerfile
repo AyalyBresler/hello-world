@@ -3,8 +3,8 @@ FROM node:alpine
 ENV NODE_ENV process
 
 COPY package*.json .
-RUN npm run build
 RUN npm install
+RUN npm run build
 
 
 RUN npm install -g jest
