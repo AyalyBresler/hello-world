@@ -1,7 +1,6 @@
 FROM node:alpine
 ENV NODE_ENV process
 WORKDIR /src
-COPY package.json /src/
 COPY . /src
 RUN npm install -g jest
 RUN npm install -g express --save
