@@ -23,5 +23,6 @@ jobs:
       #     password: ${{ secrets.GITHUB_TOKEN }}
       - name: build the dockerfile
         run: docker build . -t calc-workflow -f 'calc/Dockerfile'
+        working-directory: calc
       - name: run the dockerfile
         run: docker run -d calc-workflow
