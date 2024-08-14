@@ -5,15 +5,12 @@ WORKDIR /app
 
 COPY package.json .
 
-COPY package-lock.json .
-
 RUN npm install
 RUN npm install -g jest
 RUN npm install -g express --save
 RUN npm install -g dotenv --save
 
 COPY . .
-
 
 RUN npm run build
 
