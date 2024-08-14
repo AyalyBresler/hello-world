@@ -1,9 +1,6 @@
 FROM node:alpine
 
 ENV NODE_ENV process
-WORKDIR /app
-
-COPY package.json .
 
 RUN npm install
 RUN npm install -g jest

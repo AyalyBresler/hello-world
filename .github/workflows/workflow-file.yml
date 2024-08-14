@@ -22,6 +22,6 @@ jobs:
       #     username: ${{ github.actor }}
       #     password: ${{ secrets.GITHUB_TOKEN }}
       - name: build the dockerfile
-        run: docker build . -t calc-test -f 'calc/Dockerfile'
+        run: docker build . -t calc-workflow -f 'calc/Dockerfile'
       - name: run the dockerfile
-        run: docker run calc-test
+        run: docker run calc-workflow
