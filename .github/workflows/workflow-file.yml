@@ -18,7 +18,6 @@ jobs:
           node-version: '21'
       - uses: docker/login-action@v3
         with:
-          registry: registry.gitlab.com
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: build the dockerfile
