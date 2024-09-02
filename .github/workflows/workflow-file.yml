@@ -14,10 +14,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '21'
-      - name: build the dockerfile
-        run: docker build . -t calc-workflow
-        working-directory: calc
-      - name: run the dockerfile
-        run: docker run -d calc-workflow
+      # - name: build the dockerfile
+      #   run: docker build . -t calc-workflow
       - name: run the test
         run: docker build -t node-docker-image-test --progress=plain --no-cache --target test
+        working-directory: calc
+      # - name: run the dockerfile
+      #   run: docker run -d calc-workflow
+      
