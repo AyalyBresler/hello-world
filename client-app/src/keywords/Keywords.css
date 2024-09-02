@@ -1,0 +1,47 @@
+:root {
+    --size: 70px;
+}
+
+body {
+    text-align: center;
+}
+
+div button {
+    background-color: rgb(206, 189, 163);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 5px;
+    padding: calc(var(--size) / 5);
+    font-size: xx-large;
+    margin: 0px;
+}
+
+#keywords {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.doubleHeight {
+    height: calc(var(--size) * 2);
+}
+
+#numbers {
+    width: calc(var(--size) * 3);
+    margin-top: 3px;
+}
+
+#chars {
+    width: var(--size);
+    margin-top: 3px;
+}
+
+.doubleWidth {
+    width: calc(var(--size) * 2);
+}
+
+div{
+    display: grid;
+    justify-content: center;
+    margin: 0px;
+}

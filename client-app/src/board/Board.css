@@ -1,0 +1,10 @@
+#board {
+    width: calc(var(--size) * 4 - 6px);
+    height: calc(var(--size) * 1.4);
+    background-color: rgb(26, 25, 25);
+    border-radius: 5px;
+    font-size: xx-large;
+    margin: 0px;
+    border: 3px solid rgb(206, 189, 163);
+    color: rgb(132, 154, 187);
+}

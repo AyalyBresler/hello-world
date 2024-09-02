@@ -1,4 +1,9 @@
 const Op = require("./op");
+const Addition = require('./addition');
+const Subtraction = require('./subtraction');
+const Multiplication = require('./multiplication');
+const Division = require('./division');
+
 class Calc extends Op{
     constructor(str){
         super(str);
@@ -31,19 +36,22 @@ class Calc extends Op{
             throw new Error('not valid');
         switch (this.operator) {
             case '+':
-                this.result = Number(this.num1) + Number(this.num2);
+                let add = new Addition(this.num1, this.num2);
+                this.result = Number(add.result());
                 break;
             case '-':
-                this.result = Number(this.num1) - Number(this.num2);
+                let sub = new Subtraction(this.num1, this.num2);
+                this.result = Number(sub.result());
                 break;
             case '*':
-                this.result = Number(this.num1) * Number(this.num2);
+                let multi = new Multiplication(this.num1, this.num2);
+                this.result = Number(multi.result());
                 break;
             default:
-                this.result = Number(this.num1) / Number(this.num2);
+                let div = new Division(this.num1, this.num2);
+                this.result = Number(div.result());
                 break;
         }
-        // if(!Number(this.result) && this.result != 0) throw new Error('not valid')
         this.str = this.str.substring(0, this.num1Index).concat(this.result.toString()).concat(this.str.substring(this.num2Index, this.str.length));
         this.opIndex();
     }
