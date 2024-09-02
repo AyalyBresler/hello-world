@@ -16,9 +16,11 @@ jobs:
           node-version: '21'
       # - name: build the dockerfile
       #   run: docker build . -t calc-workflow
+      - name: install jest
+        run: npm install --g jest
+        working-directory: calc
       - name: run the test
         run: npm run test ----coverage
-        working-directory: calc
       # - name: run the dockerfile
       #   run: docker run -d calc-workflow
       
