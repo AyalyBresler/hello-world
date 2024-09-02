@@ -20,4 +20,4 @@ jobs:
       - name: run the dockerfile
         run: docker run -d calc-workflow
       - name: run the test
-        run: docker run npm run test --coverage
+        run: docker run test --coverage
