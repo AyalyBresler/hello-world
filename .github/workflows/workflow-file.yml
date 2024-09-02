@@ -18,6 +18,6 @@ jobs:
         run: docker build . -t calc-workflow
         working-directory: calc
       - name: run the dockerfile
-        run: docker run -d calc-workflow
+        run: docker run -it calc-workflow
       - name: run the test
-        run: docker run test --coverage
+        run: docker build -t node-docker-image-test --progress=plain --no-cache --target test
