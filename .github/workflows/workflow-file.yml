@@ -21,6 +21,7 @@ jobs:
         working-directory: calc
       - name: run the test
         run: npm run test ----coverage
+        working-directory: calc
       # - name: run the dockerfile
       #   run: docker run -d calc-workflow
       
