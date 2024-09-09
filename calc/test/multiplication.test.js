@@ -47,9 +47,9 @@ describe('MULTIPLICATION', ()=>{
         expect(result).toBe(6)
     })
     it('should return a number to string of a lot of numbers in the multi operator',()=>{
-        let calc = new Calc('6*2/12-5')
+        let calc = new Calc('4+  6*2/12-5')
         let result = calc.calc()
-        expect(result).toBe(-5)
+        expect(result).toBe(0)
     })
     describe('ERROR', () => {
         it('should throw error when send only one number and operator', () => {
