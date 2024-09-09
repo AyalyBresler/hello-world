@@ -7,9 +7,9 @@ services:
   # build from Dockerfile
   build:
     context: .
-  # expose 3000 as hosting port & 3000 in container port
+  # expose 8000 as hosting port & 3000 in container port
   ports:
-    - 3000:3000
+    - 8000:8000
   # environment:
   # #Provide your license key for activation as environment variable to docker container
   # REACT_APP_SYNCFUSION_LICENSE_KEY: ${REACT_APP_SYNCFUSION_LICENSE_KEY}

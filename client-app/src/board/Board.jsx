@@ -3,12 +3,16 @@ import './Board.css';
 import { BoardContext } from "./ShowContext";
 
 const Board = () => {
-    const { show } = useContext(BoardContext);
- 
+    const { show, result } = useContext(BoardContext);
+
     return (
         <div>
-            {console.log({show})}
-            <p id="board"> { show } </p>
+            {console.log({ show }, { result })}
+            <p id="board">
+                <span> {show} </span>
+                <br />
+                <span id="bold"> { result } </span>
+            </p>
         </div>
     )
 }

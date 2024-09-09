@@ -1,4 +1,4 @@
-class Op{
+class Op {
     constructor(str) {
         this.str = str;
         this.op;
@@ -7,18 +7,47 @@ class Op{
         this.opIndex();
     }
     opIndex() {
-        this.op = this.str.indexOf('*') === -1 ? this.str.length : this.str.indexOf('*');
-        this.op = this.str.indexOf('/') !== -1 &&  this.op > this.str.indexOf('/') ? this.str.indexOf('/') : this.op === this.str.length ? this.str.indexOf('+') : this.op;
-        this.op = this.op === this.str.length || this.op === -1 && this.str.indexOf('-') !== 0 ? this.str.indexOf('-') : this.op;
-        this.op = this.op === this.str.length ? -1 : this.op;
+        this.op = this.findIndexOp();
+        this.operatorStr();
+    }
+    operatorStr() {
         this.operator = this.str.substring(this.op, this.op + 1);
     }
     doubleOp() {
-        for (let i = 0; i < this.str.length; i++){
-            if(!Number(this.str.charAt(i)) && !Number(this.str.charAt(i + 1)) && this.str.charAt(i) !== '0' && this.str.charAt(i + 1) !== '0' && this.str.charAt(i + 1).trim() !== '' && this.str.charAt(i).trim() !== '')
-                if(!(this.str.charAt(i + 1) === '-' && Number(this.str.charAt(i + 2))))
-                    this.str = this.str.substring(0, i).concat(this.str.substring(i + 1));
+        for (let i = 0; i < this.str.length; i++) {
+            if (isNaN(Number(this.str.charAt(i))) && isNaN(Number(this.str.charAt(i + 1))))
+                this.str = this.str.substring(0, i).concat(this.str.substring(i + 1));
         }
+    }
+    findIndexOp() {
+        return this.containsMulti() ? this.divisionIndex() : this.index('*');
+    }
+    containsMulti() {
+        return this.index('*') === -1;
+    }
+    divisionIndex() {
+        return this.containsDivision() ? this.index('/') : this.containsMultiAndDivision();
+    }
+    containsDivision() {
+        return this.index('/') !== -1 && (this.index('*') > this.index('/') || this.index('*') === -1);
+    }
+    containsMultiAndDivision() {
+        return this.index('*') === -1 ? this.subOrAdd() : this.subIndex();
+    }
+    subOrAdd() {
+        return this.indexSubAndAdd() && this.index('+') !== -1 ? this.index('+') : this.subIndex();
+    }
+    indexSubAndAdd() {
+        return this.index('+') > this.index('-');
+    }
+    subIndex() {
+        return this.containsSub() ? this.index('-') : -1;
+    }
+    containsSub() {
+        return this.str.indexOf('-') !== 0;
+    }
+    index(char) {
+        return this.str.indexOf(char);
     }
 }
 

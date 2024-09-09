@@ -4,8 +4,8 @@ const Subtraction = require('./subtraction');
 const Multiplication = require('./multiplication');
 const Division = require('./division');
 
-class Calc extends Op{
-    constructor(str){
+class Calc extends Op {
+    constructor(str) {
         super(str);
         this.num1Index;
         this.num2Index;
@@ -15,16 +15,17 @@ class Calc extends Op{
     }
     findNum1() {
         let strOp = new Op(this.str.substring(0, this.op));
-        if (!Number(strOp.str.substring(0, strOp.op).trim()) && strOp.str.substring(0, strOp.op) !== '0' && strOp.str.substring(0, strOp.op) !== '') {
+        if (isNaN(Number(strOp.str.substring(0, strOp.op).trim()))) {
             strOp = new Calc(this.str.substring(strOp.op + 1, this.op));
             strOp.findNum1();
         }
         this.num1Index = strOp.op === -1 ? 0 : strOp.op + 1;
         this.num1 = Number(this.str.substring(this.num1Index, this.op).trim());
+        // TODO: throw error when 0/ numbers !
     }
     findNum2() {
         let strOp = new Op(this.str.substring(this.op + 1));
-        if (!Number(strOp.str.substring(0, strOp.op).trim()) && strOp.str.substring(0, strOp.op).trim() !== '0' && strOp.str.substring(0, strOp.op) !== '') {
+        if (isNaN(Number(strOp.str.substring(0, strOp.op).trim()))) {
             strOp = new Calc(this.str.substring(this.op + 1, this.op + strOp.op));
             strOp.findNum2();
         }
@@ -56,7 +57,7 @@ class Calc extends Op{
         this.opIndex();
     }
     calc() {
-        if(Number(this.str)) this.result = Number(this.str); 
+        if (Number(this.str)) this.result = Number(this.str);
         while (!Number(this.str) && this.str !== '0') {
             this.findNum1();
             this.findNum2();
@@ -66,4 +67,4 @@ class Calc extends Op{
     }
 }
 
-module.exports =  Calc ;
+module.exports = Calc;

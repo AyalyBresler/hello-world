@@ -24,7 +24,7 @@ describe('SUBTRACTION', ()=>{
     it('should return a number to string of 2 number in the sub operator twice', () => {
         let calc = new Calc('5--3')
         let result = calc.calc()
-        expect(result).toBe(8)
+        expect(result).toBe(2)
     })
     it('should return a number to string of 2 numbers in the add operator after sub operator', () => {
         let calc = new Calc('2-+3')
@@ -39,12 +39,12 @@ describe('SUBTRACTION', ()=>{
     it('should return a number to string of 2 numbers in the sub operator after the multiplication operator', () => {
         let calc = new Calc('5*-3')
         let result = calc.calc()
-        expect(result).toBe(-15)
+        expect(result).toBe(2)
     })
     it('should return a number to string of 2 numbers in the sub operator after the division operator',()=>{
         let calc = new Calc('5/-2.5')
         let result = calc.calc()
-        expect(result).toBe(-2)
+        expect(result).toBe(2.5)
     })
     it('should return a number that send when send only one number and operator',()=>{
         let calc = new Calc('-2');

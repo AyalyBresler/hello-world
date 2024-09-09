@@ -1,18 +1,23 @@
 const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
 const Calc = require("./src/calc");
 
 const app = express();
 const { PORT, HOST } = process.env;
 
-app.get('/', (req, res) =>{
+app.use(cors());
+app.use(express.json()); 
+
+app.get('/', (req, res) => {
     res.send('Welcome to my server!');
 });
 
-app.get("/calc", (req, res) => {
-    console.log(req.params, req.body);
-    const calc = new Calc();
-    const result = calc.calc();
+app.post("/calc/", (req, res) => {
+    const exercise = req.body.params;
+    const calc = new Calc(exercise);
+    let result = calc.calc();
+    result = { result: result };
     res.send(result);
 });
 

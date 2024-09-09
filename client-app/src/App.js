@@ -9,8 +9,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <BoardProvider>
-          <Board/>
-          <KeyWords/>
+          <Board />
+          <KeyWords />
         </BoardProvider>
       </header>
     </div>

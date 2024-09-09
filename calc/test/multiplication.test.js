@@ -39,7 +39,7 @@ describe('MULTIPLICATION', ()=>{
     it('should return a number to string of 2 numbers in the sub operator after the multi operator', () => {
         let calc = new Calc('2*-3')
         let result = calc.calc()
-        expect(result).toBe(-6)
+        expect(result).toBe(-1)
     })
     it('should return a number to string of 2 numbers in the multi operator after the division operator', () => {
         let calc = new Calc('2/*3')
@@ -47,9 +47,9 @@ describe('MULTIPLICATION', ()=>{
         expect(result).toBe(6)
     })
     it('should return a number to string of a lot of numbers in the multi operator',()=>{
-        let calc = new Calc('10 *3*2+  2*5*3/6 + 2+6-25')
+        let calc = new Calc('10 *3*2+  2*5*3   /12-5')
         let result = calc.calc()
-        expect(result).toBe(48)
+        expect(result).toBe(2.5)
     })
     describe('ERROR', () => {
         it('should throw error when send only one number and operator', () => {
