@@ -14,10 +14,9 @@ class Op {
         this.operator = this.str.substring(this.op, this.op + 1);
     }
     doubleOp() {
-        for (let i = 0; i < this.str.length; i++) {
+        for (let i = 0; i < this.str.length; i++)
             if (isNaN(Number(this.str.charAt(i))) && isNaN(Number(this.str.charAt(i + 1))))
                 this.str = this.str.substring(0, i).concat(this.str.substring(i + 1));
-        }
     }
     findIndexOp() {
         return this.containsMulti() ? this.divisionIndex() : this.index('*');
@@ -44,7 +43,7 @@ class Op {
         return this.containsSub() ? this.index('-') : -1;
     }
     containsSub() {
-        return this.str.indexOf('-') !== 0;
+        return this.index('-') !== 0;
     }
     index(char) {
         return this.str.indexOf(char);
