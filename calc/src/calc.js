@@ -56,7 +56,6 @@ class Calc extends Op {
             this.findNum1();
             this.findNum2();
             this.complete();
-            console.log(this.str);
         }
         return Number(this.str);
     }

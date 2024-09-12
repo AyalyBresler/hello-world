@@ -50,7 +50,7 @@ describe('MULTIPLICATION', ()=>{
         let calc = new Calc('2+10 *3*2+  2')
         console.log(calc.str);
         let result = calc.calc()
-        expect(result).toBe(-50)
+        expect(result).toBe(64)
     })
     describe('ERROR', () => {
         it('should throw error when send only one number and operator', () => {
