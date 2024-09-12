@@ -58,7 +58,7 @@ class Calc extends Op {
             this.complete();
             console.log(this.str);
         }
-        return this.str;
+        return Number(this.str);
     }
 }
 
