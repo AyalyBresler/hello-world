@@ -47,7 +47,8 @@ describe('MULTIPLICATION', ()=>{
         expect(result).toBe(6)
     })
     it('should return a number to string of a lot of numbers in the multi operator',()=>{
-        let calc = new Calc('2-4+45-6+5')
+        let calc = new Calc('2+10 *3*2+  2')
+        console.log(calc.str);
         let result = calc.calc()
         expect(result).toBe(-50)
     })

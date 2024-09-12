@@ -34,10 +34,10 @@ class Op {
         return this.index('*') === -1 ? this.subOrAdd() : this.subIndex();
     }
     subOrAdd() {
-        return this.indexSubAndAdd() && this.index('+') !== -1 ? this.index('+') : this.subIndex();
+        return this.indexSubAndAdd() ? this.index('+') : this.subIndex();
     }
     indexSubAndAdd() {
-        return this.index('+') > this.index('-');
+        return this.index('+') !== -1 && (this.index('+') < this.index('-') || (this.index('-') === 0 || this.index('-') === -1));
     }
     subIndex() {
         return this.containsSub() ? this.index('-') : -1;
