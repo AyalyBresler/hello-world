@@ -16,8 +16,8 @@ jobs:
           node-version: '21'
       - name: install jest
         run: npm install --g jest
-        working-directory: calc/server
+        working-directory: calc
       - name: run the test
-        run: npm run test ----coverage
-        working-directory: calc/server
+        run: npm run test --coverage
+        working-directory: calc
       
