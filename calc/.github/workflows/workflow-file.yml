@@ -1,6 +1,6 @@
 name: GitHub Actions Calculator
 
-on: 
+on:
   push:
     branches: ['calc']
 
@@ -20,4 +20,3 @@ jobs:
       - name: run the test
         run: npm run test ----coverage
         working-directory: calc
-      
