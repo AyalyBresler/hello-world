@@ -35,7 +35,7 @@ class Operator {
     }
 
     notNegativeNumber(index) {
-        return this.str.charAt(index) !== '-' && !this.notCorrectNumber(index + 1);
+        return this.str.charAt(index) !== '-';
     }
 
     findIndexOp() {
