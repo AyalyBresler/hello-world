@@ -58,7 +58,7 @@ describe('DIVISION', () => {
         })
         it('should throw error when send the division operator after the multi operator', () => {
             let calc = new Calc('6*/3')
-            expect(()=>calc.calc()).toThrow('Incorrect There is more than one operator')
+            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator')
         })
     })
 })

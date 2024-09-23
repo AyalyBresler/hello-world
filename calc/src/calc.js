@@ -1,4 +1,4 @@
-const Op = require("./op");
+const Operator = require("./op");
 const Exercise = require("./exercise");
 
 class Calc extends Op {
@@ -10,7 +10,7 @@ class Calc extends Op {
         this.num2;
     }
     findNum1() {
-        let strOp = new Op(this.str.substring(0, this.op));
+        let strOp = new Operator(this.str.substring(0, this.op));
         if (isNaN(Number(strOp.str.substring(strOp.op + 1).trim()))) {
             strOp = new Calc(this.str.substring(strOp.op + 1, this.op));
             strOp.findNum1();
@@ -18,7 +18,7 @@ class Calc extends Op {
         this.num1Indexes(strOp);
     }
     findNum2() {
-        let strOp = new Op(this.str.substring(this.op + 1));
+        let strOp = new Operator(this.str.substring(this.op + 1));
         if (isNaN(Number(strOp.str.substring(0, strOp.op).trim()))) {
             strOp = new Calc(this.str.substring(this.op + 1, this.op + strOp.op));
             strOp.findNum2();
