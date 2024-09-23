@@ -22,7 +22,7 @@ class Operator {
     }
 
     errorOnDoubleOperators(index) {
-        if (this.doubleOperators((index)))  throw new Error('Incorrect There is more than one operator');
+        if (this.doubleOperators((index))) throw new Error('Incorrect There is more than one operator');
     }
 
     doubleOperators(index) {
@@ -34,7 +34,7 @@ class Operator {
     }
 
     notNegativeNumber(index) {
-        return this.str.charAt(index) !== '-';
+        return this.str.charAt(index) !== '-' && this.notCorrectNumber(index + 1);
     }
 
     findIndexOp() {
