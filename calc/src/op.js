@@ -23,11 +23,11 @@ class Operator {
 
     errorOnDoubleOperators(index) {
         if (this.doubleOperators((index)))
-            throw new Error('not valid');
+            throw new Error('Incorrect There is more than one operator');
     }
 
     doubleOperators(index) {
-        return isNaN(Number(this.str.charAt(index - 1))) && isNaN(Number(this.str.substring(index, index + 2))) && this.str.charAt(index) === '+';
+        return isNaN(Number(this.str.charAt(index - 1))) && isNaN(Number(this.str.substring(index, index + 2))) && this.str.charAt(index) !== '+';
     }
 
     findIndexOp() {

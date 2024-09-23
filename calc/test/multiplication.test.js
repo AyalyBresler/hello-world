@@ -1,6 +1,6 @@
 const Calc = require("../src/calc");
 
-describe('MULTIPLICATION', ()=>{
+describe('MULTIPLICATION', () => {
     it('should return a number to string of 2 numbers in the multi operator', () => {
         let calc = new Calc('2*3')
         let result = calc.calc()
@@ -11,7 +11,7 @@ describe('MULTIPLICATION', ()=>{
         let result = calc.calc()
         expect(result).toBe(5)
     })
-    it('should return a number to string of 2 numbers that one it is 1 and the result is the second number in the multi operator',()=>{
+    it('should return a number to string of 2 numbers that one it is 1 and the result is the second number in the multi operator', () => {
         let calc = new Calc('1*3')
         let result = calc.calc()
         expect(result).toBe(3)
@@ -21,34 +21,13 @@ describe('MULTIPLICATION', ()=>{
         let result = calc.calc()
         expect(result).toBe(6)
     })
-    it('should return a number to string of 2 number in the multi operator twice', () => {
-        let calc = new Calc('2**3')
-        let result = calc.calc()
-        expect(result).toBe(6)
-    })
-    it('should return a number to string of 2 numbers in the sub operator after multi operator', () => {
-        let calc = new Calc('2-*3')
-        let result = calc.calc()
-        expect(result).toBe(6)
-    })
-    it('should return a number to string of 2 numbers in the multi operator after the add operator', () => {
-        let calc = new Calc('2+*3')
-        let result = calc.calc()
-        expect(result).toBe(6)
-    })
     it('should return a number to string of 2 numbers in the sub operator after the multi operator', () => {
         let calc = new Calc('2*-3')
         let result = calc.calc()
-        expect(result).toBe(-1)
+        expect(result).toBe(-6)
     })
-    it('should return a number to string of 2 numbers in the multi operator after the division operator', () => {
-        let calc = new Calc('2/*3')
-        let result = calc.calc()
-        expect(result).toBe(6)
-    })
-    it('should return a number to string of a lot of numbers in the multi operator',()=>{
+    it('should return a number to string of a lot of numbers in the multi operator', () => {
         let calc = new Calc('2+10 *3*2+  2')
-        console.log(calc.str);
         let result = calc.calc()
         expect(result).toBe(64)
     })
@@ -57,9 +36,26 @@ describe('MULTIPLICATION', ()=>{
             let calc = new Calc('*2')
             expect(() => calc.calc()).toThrow('not valid')
         })
-        it('should throw error when send only one number and operator',()=>{
+        it('should throw error when send only one number and operator', () => {
             let calc = new Calc('2*')
             expect(() => calc.calc()).toThrow('not valid')
+        })
+        it('should throw error when send the multi operator twice', () => {
+            let calc = new Calc('2**3');
+            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
+        })
+        it('should return a number to string of 2 numbers in the sub operator after multi operator', () => {
+            let calc = new Calc('2-*3');
+            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
+        })
+        it('should throw error when send the multi operator after the add operator', () => {
+            let calc = new Calc('2+*3')
+            let result =
+                expect(() => calc.calc()).toThrow('Incorrect There is more than one operator')
+        })
+        it('should throw error when send the multi operator after the division operator', () => {
+            let calc = new Calc('2/*3');
+            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator')
         })
     })
 })
