@@ -1,7 +1,7 @@
 const Operator = require("./op");
 const Exercise = require("./exercise");
 
-class Calc extends Op {
+class Calc extends Operator {
     constructor(str) {
         super(str);
         this.num1Index;
