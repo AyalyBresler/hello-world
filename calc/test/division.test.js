@@ -45,20 +45,16 @@ describe('DIVISION', () => {
             expect(() => calc.calc()).toThrow('Can not divide by 0!')
         })
         it('should throw error when send the sub operator after division operator', () => {
-            let calc = new Calc('6-/3');
-            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
+            expect(() => new Calc('6-/3')).toThrow('Incorrect There is more than one operator');
         })
         it('should throw error when send the division operator twice', () => {
-            let calc = new Calc('6//3');
-            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator')
+            expect(() => new Calc('6//3')).toThrow('Incorrect There is more than one operator')
         })
         it('should throw error when send the division operator after the add operator', () => {
-            let calc = new Calc('6+/3');
-            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
+            expect(() => new Calc('6+/3')).toThrow('Incorrect There is more than one operator');
         })
         it('should throw error when send the division operator after the multi operator', () => {
-            let calc = new Calc('6*/3')
-            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator')
+            expect(() => new Calc('6*/3')).toThrow('Incorrect There is more than one operator')
         })
     })
 })
