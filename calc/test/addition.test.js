@@ -39,13 +39,13 @@ describe('ADDITION', () => {
     describe('ERROR', () => {
         it('should throw error when send only one number and operator', () => {
             let calc = new Calc('2+')
-            expect(() => calc.calc()).toThrow('not valid')
+            expect(() => calc.calc()).toThrow('not valid');
         })
         it('should throw error when send the add operator twice', () => {
             let calc = new Calc('2++3');
             expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
         })
-        it('should return a number to string of 2 numbers in the add operator after the subtraction operator', () => {
+        it('should throw error when send the add operator after the subtraction operator', () => {
             let calc = new Calc('2-+3');
             expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
         })
@@ -53,7 +53,7 @@ describe('ADDITION', () => {
             let calc = new Calc('2*+3');
             expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
         })
-        it('should return a number to string of 2 numbers in the add operator after the division operator', () => {
+        it('should throw error when send the add operator after the division operator', () => {
             let calc = new Calc('2/+3');
             expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
         })

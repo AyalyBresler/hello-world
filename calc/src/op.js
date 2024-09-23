@@ -22,8 +22,7 @@ class Operator {
     }
 
     errorOnDoubleOperators(index) {
-        if (this.doubleOperators((index)))
-            throw new Error('Incorrect There is more than one operator');
+        if (this.doubleOperators((index)))  throw Error('Incorrect There is more than one operator');
     }
 
     doubleOperators(index) {
