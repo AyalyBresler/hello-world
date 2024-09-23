@@ -26,7 +26,7 @@ class Operator {
     }
 
     doubleOperators(index) {
-        return this.notCorrectNumber(index - 1) && this.notCorrectNumber(index) && this.notNegativeNumber(index);
+        return this.notCorrectNumber(index - 1) && (this.notCorrectNumber(index) || this.notNegativeNumber(index));
     }
 
     notCorrectNumber(index) {
