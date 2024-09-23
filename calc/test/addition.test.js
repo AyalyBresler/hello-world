@@ -45,8 +45,7 @@ describe('ADDITION', () => {
             expect(() => new Calc('2++3')).toThrow('Incorrect There is more than one operator');
         })
         it('should throw error when send the add operator after the subtraction operator', () => {
-            let calc = new Calc('2-+3');
-            expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
+            expect(() => new Calc('2-+3')).toThrow('Incorrect There is more than one operator');
         })
         it('should throw error when send the add operator after the multiplication operator', () => {
             expect(() => new Calc('2*+3')).toThrow('Incorrect There is more than one operator');
