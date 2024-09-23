@@ -27,7 +27,7 @@ class Operator {
     }
 
     doubleOperators(index) {
-        return isNaN(Number(this.str.charAt(index - 1))) && isNaN(Number(this.str.charAt(index))) && this.str.charAt(index) !== '-';
+        return isNaN(Number(this.str.charAt(index - 1))) && isNaN(Number(this.str.charAt(index))) && this.str.charAt(index) === '-';
     }
 
     findIndexOp() {
