@@ -27,7 +27,15 @@ class Operator {
     }
 
     doubleOperators(index) {
-        return isNaN(Number(this.str.charAt(index - 1))) && isNaN(Number(this.str.charAt(index))) && this.str.charAt(index) === '-';
+        return this.notCorrectNumber(index - 1) && this.notCorrectNumber(index) && this.notNegativeNumber(index);
+    }
+
+    notCorrectNumber(index) {
+        return isNaN(Number(this.str.charAt(index)))
+    }
+
+    notNegativeNumber(index) {
+        return this.str.charAt(index) !== '-' && !this.notCorrectNumber(index + 1);
     }
 
     findIndexOp() {
