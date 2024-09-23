@@ -44,7 +44,7 @@ describe('MULTIPLICATION', () => {
             let calc = new Calc('2**3');
             expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
         })
-        it('should return a number to string of 2 numbers in the sub operator after multi operator', () => {
+        it('should throw error when send the sub operator after multi operator', () => {
             let calc = new Calc('2-*3');
             expect(() => calc.calc()).toThrow('Incorrect There is more than one operator');
         })
