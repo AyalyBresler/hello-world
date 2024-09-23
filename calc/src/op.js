@@ -26,15 +26,15 @@ class Operator {
     }
 
     doubleOperators(index) {
-        return this.notCorrectNumber(index - 1) && (this.notCorrectNumber(index) || this.negativeNumber(index));
+        return this.notCorrectNumber(index - 1) && this.notCorrectNumber(index) && this.notNegativeNumber(index);
     }
 
     notCorrectNumber(index) {
         return isNaN(Number(this.str.charAt(index)))
     }
 
-    negativeNumber(index) {
-        return this.str.charAt(index) === '-' || this.notCorrectNumber(index + 1);
+    notNegativeNumber(index) {
+        return this.str.charAt(index) !== '-' && !this.notCorrectNumber(index + 1);
     }
 
     findIndexOp() {
@@ -62,7 +62,7 @@ class Operator {
     }
 
     indexSubAndAdd() {
-        return this.index('+') > this.index('-');
+        return this.index('+') < this.index('-');
     }
 
     subIndex() {

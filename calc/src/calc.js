@@ -35,7 +35,6 @@ class Calc extends Operator {
     }
     complete() {
         if (this.correctNumber(this.num1) || this.correctNumber(this.num2)) {
-            console.log(this.num1, this.num2, this.str);
             throw new Error('not valid');
         }
         this.updateStr();
