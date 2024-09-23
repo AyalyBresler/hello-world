@@ -62,7 +62,7 @@ class Operator {
     }
 
     indexSubAndAdd() {
-        return this.index('+') < this.index('-') && this.index('-') !== -1;
+        return this.index('+') < this.index('-') || this.index('-') !== -1 || this.containsSub();
     }
 
     subIndex() {
