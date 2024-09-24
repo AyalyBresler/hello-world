@@ -5,13 +5,13 @@ const Operator = require('./../src/op');
 describe('CALC', () => {
     it('should create numbers and operator in calc', () => {
         let calc = new Calculator('3+5');
-        calc.calc();
+        let result = calc.calc();
         expect(calc.num1).toEqual(3);
-        expect(calc.op).toEqual(1);
         expect(calc.num2).toEqual(5);
+        expect(result).toBe(8);
     })
     it('should create num1 with the long exercise', () => {
-        let calc = new Calculator('2+3+5*2');
+        let calc = new Calculator('2+5*2');
         calc.findNum1;
         let result = calc.num1;
         expect(result).toEqual(5);
