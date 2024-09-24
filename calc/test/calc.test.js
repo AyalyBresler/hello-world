@@ -12,8 +12,8 @@ describe('CALC', () => {
     })
     it('should create num1 with the long exercise', () => {
         let calc = new Calculator('2+5*2');
-        let result = calc.findNum1;
-        expect(result.num1).toEqual(5);
+        calc.findNum1;
+        expect(calc.num1).toEqual(5);
     })
     it('should create num2 with the long exercise after', () => {
         let calc = new Calculator('3*5+8+6');
@@ -23,8 +23,7 @@ describe('CALC', () => {
     it('should return false when send operator before num1', () => {
         let calc = new Calculator('5+5*6')
         let op = new Operator(calc.str.substring(0, calc.op));
-        let result = calc.num1IsNotANumber(op)
-        expect(result).toBe(false);
+        expect(calc.num1IsNotANumber(op)).toBe(false);
     })
     it('should return there is operator before * operator', () => {
         let calc = new Calculator('5+6');
@@ -49,6 +48,7 @@ describe('CALC', () => {
         let calc = new Calculator('5+6*2');
         let op = new Operator(calc.str.substring(0, calc.op));
         calc.num1IndexOp(op);
+        console.log(calc.num1BeginIndex, calc.op);
         let result = calc.num1ReturnNumber();
         expect(result).toEqual(6)
     })
