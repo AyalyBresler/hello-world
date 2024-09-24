@@ -12,9 +12,8 @@ describe('CALC', () => {
     })
     it('should create num1 with the long exercise', () => {
         let calc = new Calculator('2+5*2');
-        calc.findNum1;
-        let result = calc.num1;
-        expect(result).toEqual(5);
+        let result = calc.findNum1;
+        expect(result.num1).toEqual(5);
     })
     it('should create num2 with the long exercise after', () => {
         let calc = new Calculator('3*5+8+6');
