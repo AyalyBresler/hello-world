@@ -54,12 +54,12 @@ class Calculator extends Operator {
         this.num2 = this.num2ReturnNumber();
     }
 
-    num2IndexOp(numIncludesOp){
+    num2IndexOp(numIncludesOp) {
         return numIncludesOp.op === -1 ? this.str.length : numIncludesOp.op + this.op + 1;;
     }
 
-    num2ReturnNumber(){
-        return this.num2EndIndex === this.op + 1 ? '' : Number(this.str.substring(this.op + 1, this.num2EndIndex).trim());
+    num2ReturnNumber() {
+        return this.num2EndIndex === this.op + 1 ? '' : Number(this.subStr(this.op + 1, this.num2EndIndex).trim());
     }
 
     complete() {
@@ -69,6 +69,7 @@ class Calculator extends Operator {
         this.updateStr();
         this.opIndex();
     }
+
     updateStr() {
         let exercise = new Exercise(this.num1, this.operator, this.num2);
         let result = exercise.result();
@@ -76,12 +77,15 @@ class Calculator extends Operator {
             .concat(result.toString())
             .concat(this.str.substring(this.num2EndIndex, this.str.length));
     }
+
     subStr(index1, index2) {
         return this.str.substring(index1, index2);
     }
+
     correctNumber(num) {
         return isNaN(num) || num === '';
     }
+
     calc() {
         while (isNaN(Number(this.str))) {
             this.findNum1();
