@@ -1,0 +1,25 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "description": "build calculator in Node.js with oop and tdd.",
+  "main": "calc.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptc-4/calculator-assignment.git"
+  },
+  "author": "ayala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptc-4/calculator-assignment/issues"
+  },
+  "homepage": "https://github.com/ptc-4/calculator-assignment#readme"
+}
