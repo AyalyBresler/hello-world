@@ -46,14 +46,14 @@ class Operator {
     }
 
     divisionIndex() {
-        return this.containsDivision() ? this.index('/') : this.containsMultiAndDivision();
+        return this.containsDivision() ? this.index('/') : this.notContainsMultiAndContainsSubOrAdd();
     }
 
     containsDivision() {
         return this.index('/') !== -1 && (this.index('*') > this.index('/') || this.index('*') === -1);
     }
 
-    containsMultiAndDivision() {
+    notContainsMultiAndContainsSubOrAdd() {
         return this.index('*') === -1 ? this.subOrAdd() : this.subIndex();
     }
 
