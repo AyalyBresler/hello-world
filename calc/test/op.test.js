@@ -14,44 +14,57 @@ describe('OPERATOR', () => {
         let op = new Operator('5-6');
         expect(op.notNegativeNumber(1)).toBe(false);
     })
-    it('should return false when not contains multiplication operator',()=>{
+    it('should return false when not contains multiplication operator', () => {
         let op = new Operator('5*6');
         expect(op.containsMulti()).toBe(false);
     })
-    it('should return true when not contains division operator',()=>{
+    it('should return true when not contains division operator', () => {
         let op = new Operator('5/6');
         expect(op.containsDivision()).toBe(true);
     })
-    it('should return the index of addition operator',()=>{
+    it('should return the index of addition operator', () => {
         let op = new Operator('5+6');
         expect(op.subOrAdd()).toBe(1);
     })
-    it('should return true when not contains subtraction operator',()=>{
+    it('should return true when not contains subtraction operator', () => {
         let op = new Operator('5-6');
         expect(op.containsSub()).toBe(true);
     })
-    it('should return the index of division',()=>{
+    it('should return the index of division', () => {
         let op = new Operator('5+6/2');
         expect(op.divisionIndex()).toBe(3)
     })
-    it('should return the index of sub operator when the sub it is more than add',()=>{
+    it('should return the index of sub operator when the sub it is more than add', () => {
         let op = new Operator('5-6+2');
         expect(op.notContainsMultiAndContainsSubOrAdd()).toBe(3)
     })
-    it('should return true when + before -',()=>{
+    it('should return true when + before -', () => {
         let op = new Operator('5+6-2');
         expect(op.indexSubAndAdd()).toBe(true)
     })
-    it('should return true when - before +',()=>{
+    it('should return true when - before +', () => {
         let op = new Operator('5-6+2');
         expect(op.indexSubAndAdd()).toBe(true)
     })
-    it('should return true when - not found',()=>{
+    it('should return true when - not found', () => {
         let op = new Operator('5+2');
         expect(op.indexSubAndAdd()).toBe(true);
     })
-    it('should return -1 when operator not found',()=>{
+    it('should return -1 when operator not found', () => {
         let op = new Operator('-2');
         expect(op.subIndex()).toBe(-1);
+    })
+    describe('ERROR', () => {
+        it('should throw error when send double operators the same', () => {
+            expect(() => new Operator('5++6')).toThrow('Incorrect There is more than one operator');
+            expect(() => new Operator('5//6')).toThrow('Incorrect There is more than one operator');
+            expect(() => new Operator('5**6')).toThrow('Incorrect There is more than one operator');
+        })
+        it('should throw error when send double operators', () => {
+            expect(() => new Operator('5+*6')).toThrow('Incorrect There is more than one operator');
+            expect(() => new Operator('5*+6')).toThrow('Incorrect There is more than one operator');
+            expect(() => new Operator('5-/6')).toThrow('Incorrect There is more than one operator');
+            expect(() => new Operator('5+/6')).toThrow('Incorrect There is more than one operator');
+        })
     })
 })
