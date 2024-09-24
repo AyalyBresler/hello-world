@@ -50,4 +50,8 @@ describe('OPERATOR', () => {
         let op = new Operator('5+2');
         expect(op.indexSubAndAdd()).toBe(true);
     })
+    it('should return -1 when operator not found',()=>{
+        let op = new Operator('-2');
+        expect(op.subIndex()).toBe(-1);
+    })
 })
