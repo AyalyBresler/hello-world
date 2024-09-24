@@ -40,7 +40,7 @@ describe('CALC', () => {
     it('should return there is operator after * operator', () => {
         let calc = new Calculator('5*6');
         let op = new Operator(calc.str.substring(calc.op + 1));
-        calc.num1SetIndex(op);
+        calc.num2SetIndex(op);
         expect(calc.num2EndIndex).toBe(calc.str.length);
         expect(calc.num2).toEqual(6)
     })
