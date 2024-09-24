@@ -81,4 +81,38 @@ describe('CALC', () => {
         let result = calc.num2ReturnNumber();
         expect(result).toEqual(6)
     })
+    it('should update the str of calculator and search new operator', () => {
+        let calc = new Calculator('5*6+2');
+        calc.findNum1();
+        calc.findNum2();
+        calc.complete();
+        expect(calc.str).toEqual('30+2');
+        expect(calc.operator).toEqual('+');
+    })
+    it('should update the str of calculator', () => {
+        let calc = new Calculator('5*6+2');
+        calc.findNum1();
+        calc.findNum2();
+        calc.updateStr();
+        expect(calc.str).toEqual('30+2');
+    })
+    it('should return sub str when send 2 indexes', () => {
+        let calc = new Calculator('5*6+2');
+        let result = calc.subStr(1, 4);
+        expect(result).toEqual('*6+');
+    })
+    it('should return false when send not correct number', () => {
+        let calc = new Calculator('5*6+2');
+        let result = calc.notCorrectNumber(calc.str);
+        expect(result).toEqual(false);
+    })
+    describe('ERROR', () => {
+        it('should throw error when send un correct numbers', () => {
+            let calc = new Calculator('5+66*');
+            calc.findNum1();
+            calc.findNum2();
+            calc.complete();
+            expect(calc.complete()).toThrow('not valid');
+        })
+    })
 })
