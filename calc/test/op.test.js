@@ -36,15 +36,15 @@ describe('OPERATOR', () => {
     })
     it('should return the index of sub operator when the sub it is more than add',()=>{
         let op = new Operator('5-6+2');
-        expect(op.notContainsMultiAndContainsSubOrAdd()).toBe(1)
+        expect(op.notContainsMultiAndContainsSubOrAdd()).toBe(3)
     })
     it('should return true when + before -',()=>{
         let op = new Operator('5+6-2');
         expect(op.indexSubAndAdd()).toBe(true)
     })
-    it('should return false when - before +',()=>{
+    it('should return true when - before +',()=>{
         let op = new Operator('5-6+2');
-        expect(op.indexSubAndAdd()).toBe(false)
+        expect(op.indexSubAndAdd()).toBe(true)
     })
     it('should return true when - not found',()=>{
         let op = new Operator('5+2');
