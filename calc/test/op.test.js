@@ -12,22 +12,26 @@ describe('OPERATOR', () => {
     })
     it('should return false when there is number after minus', () => {
         let op = new Operator('5-6');
-        expect(op.notNegativeNumber(1)).toBe(true);
+        expect(op.notNegativeNumber(1)).toBe(false);
     })
     it('should return false when not contains multiplication operator',()=>{
         let op = new Operator('5*6');
         expect(op.containsMulti()).toBe(false);
     })
-    it('should return false when not contains division operator',()=>{
+    it('should return true when not contains division operator',()=>{
         let op = new Operator('5/6');
-        expect(op.containsDivision()).toBe(false);
+        expect(op.containsDivision()).toBe(true);
     })
-    it('should return false when not contains addition operator',()=>{
+    it('should return the index of addition operator',()=>{
         let op = new Operator('5+6');
-        expect(op.subOrAdd()).toBe(false);
+        expect(op.subOrAdd()).toBe(1);
     })
-    it('should return false when not contains subtraction operator',()=>{
+    it('should return true when not contains subtraction operator',()=>{
         let op = new Operator('5-6');
-        expect(op.containsSub()).toBe(false);
+        expect(op.containsSub()).toBe(true);
+    })
+    it('should return the index of division',()=>{
+        let op = new Operator('5+6/2');
+        expect(op.divisionIndex()).toBe(1)
     })
 })
