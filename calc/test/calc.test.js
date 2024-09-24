@@ -111,7 +111,6 @@ describe('CALC', () => {
             let calc = new Calculator('5+66*');
             calc.findNum1();
             calc.findNum2();
-            calc.complete();
             expect(() => calc.complete()).toThrow('not valid');
         })
     })
