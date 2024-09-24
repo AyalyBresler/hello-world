@@ -47,8 +47,7 @@ describe('CALC', () => {
     it('should return the number of num1 even if there is more than one operator', () => {
         let calc = new Calculator('5+6*2');
         let op = new Operator(calc.str.substring(0, calc.op));
-        calc.num1IndexOp(op);
-        console.log(calc.num1BeginIndex, calc.op);
+        calc.num1SetIndex(op);
         let result = calc.num1ReturnNumber();
         expect(result).toEqual(6)
     })
