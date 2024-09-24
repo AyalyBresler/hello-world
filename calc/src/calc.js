@@ -63,7 +63,7 @@ class Calculator extends Operator {
     }
 
     complete() {
-        if (this.correctNumber(this.num1) || this.correctNumber(this.num2)) {
+        if (this.unCorrectNumber(this.num1) || this.unCorrectNumber(this.num2)) {
             throw new Error('not valid');
         }
         this.updateStr();
@@ -82,7 +82,7 @@ class Calculator extends Operator {
         return this.str.substring(index1, index2);
     }
 
-    correctNumber(num) {
+    unCorrectNumber(num) {
         return isNaN(num) || num === '';
     }
 
