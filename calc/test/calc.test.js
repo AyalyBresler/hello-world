@@ -112,7 +112,7 @@ describe('CALC', () => {
             calc.findNum1();
             calc.findNum2();
             calc.complete();
-            expect(calc.complete()).toThrow('not valid');
+            expect(() => calc.complete()).toThrow('not valid');
         })
     })
 })
