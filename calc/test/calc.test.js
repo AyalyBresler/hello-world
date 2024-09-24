@@ -12,12 +12,12 @@ describe('CALC', () => {
     })
     it('should create num1 with the long exercise', () => {
         let calc = new Calculator('2+5*2');
-        calc.findNum1;
+        calc.findNum1();
         expect(calc.num1).toEqual(5);
     })
     it('should create num2 with the long exercise after', () => {
         let calc = new Calculator('3*5+8+6');
-        calc.findNum2;
+        calc.findNum2();
         expect(calc.num2).toEqual(5);
     })
     it('should return false when send operator before num1', () => {
